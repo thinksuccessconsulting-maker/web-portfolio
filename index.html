@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#101a21" media="(prefers-color-scheme: dark)" />
+  <meta name="description" content="A portfolio of small-business websites and practical web apps by Yemi Odugbesan." />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <title>Yemi Odugbesan | Small-Business Websites &amp; Web Apps</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: #f4f1ea;
+      --surface: #fffdf8;
+      --surface-2: #ebe6dc;
+      --ink: #16242c;
+      --muted: #52616a;
+      --line: #d7d0c4;
+      --accent: #d75236;
+      --accent-ink: #ffffff;
+      --navy: #17354b;
+      --sage: #8da88f;
+      --shadow: 0 20px 60px rgba(38, 43, 44, .12);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #101a21;
+        --surface: #17242c;
+        --surface-2: #1d2d36;
+        --ink: #f5f1e8;
+        --muted: #afbcc2;
+        --line: #31424b;
+        --accent: #f06a4f;
+        --accent-ink: #15191c;
+        --navy: #8ab7ce;
+        --sage: #a9c5ab;
+        --shadow: 0 20px 60px rgba(0, 0, 0, .28);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 78svh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(280px, .7fr);
+      align-items: end;
+      gap: clamp(44px, 8vw, 110px);
+      padding: clamp(72px, 11vw, 140px) 0 64px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-copy { max-width: 760px; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 2px;
+      background: var(--accent);
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 26px;
+      font-family: "Source Serif 4", serif;
+      font-size: clamp(3.2rem, 7.6vw, 7.2rem);
+      line-height: .93;
+      letter-spacing: -.055em;
+      max-width: 850px;
+    }
+    .hero-lede {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.06rem, 2vw, 1.35rem);
+      line-height: 1.65;
+    }
+    .hero-index {
+      padding: 8px 0 8px 24px;
+      border-left: 1px solid var(--line);
+    }
+    .stat {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 14px;
+      align-items: baseline;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .stat:last-child { border-bottom: 0; }
+    .stat strong {
+      font-family: "Source Serif 4", serif;
+      font-size: 2.7rem;
+      line-height: 1;
+      color: var(--accent);
+    }
+    .stat span { color: var(--muted); font-size: .92rem; }
+
+    .work { padding: 76px 0 94px; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+    h2 {
+      margin-bottom: 7px;
+      font-family: "Source Serif 4", serif;
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -.035em;
+    }
+    .section-head p { margin: 0; color: var(--muted); }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    .filter {
+      appearance: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      padding: 9px 14px;
+      cursor: pointer;
+      font-size: .86rem;
+      font-weight: 700;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .filter:hover, .filter:focus-visible { border-color: var(--accent); color: var(--ink); }
+    .filter[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .filter:focus-visible, .project-link:focus-visible, .cta:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .project {
+      grid-column: span 6;
+      min-width: 0;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
+      transition: transform .25s ease, box-shadow .25s ease, opacity .2s ease;
+    }
+    .project:first-child { grid-column: span 7; }
+    .project:nth-child(2) { grid-column: span 5; }
+    .project:nth-child(5) { grid-column: span 12; }
+    .project[hidden] { display: none; }
+    @media (hover: hover) {
+      .project:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    }
+    .preview {
+      min-height: 300px;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .browser {
+      width: 92%;
+      max-width: 560px;
+      min-height: 225px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 24px 55px rgba(9, 18, 26, .23);
+      transform: rotate(-1deg);
+    }
+    .browser-bar {
+      height: 28px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0 11px;
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid rgba(20,30,38,.12);
+    }
+    .browser-bar i { width: 6px; height: 6px; border-radius: 50%; background: #adb4b7; }
+    .mini-site { min-height: 197px; padding: 28px; position: relative; }
+    .mini-kicker { font-size: .56rem; text-transform: uppercase; letter-spacing: .14em; font-weight: 800; opacity: .74; }
+    .mini-title { margin-top: 18px; max-width: 76%; font-family: "Source Serif 4", serif; font-size: clamp(1.45rem, 3vw, 2.3rem); line-height: .96; letter-spacing: -.035em; }
+    .mini-rule { width: 62px; height: 4px; margin-top: 24px; background: currentColor; opacity: .75; }
+    .mini-dots { position: absolute; right: 25px; bottom: 24px; display: grid; gap: 6px; }
+    .mini-dots span { display:block; height: 4px; border-radius: 9px; background: currentColor; opacity: .35; }
+    .mini-dots span:nth-child(1) { width: 66px; }
+    .mini-dots span:nth-child(2) { width: 48px; }
+    .mini-dots span:nth-child(3) { width: 56px; }
+
+    .think { background: #b7ced5; }
+    .think .mini-site { background: #18394d; color: #f7f1e7; }
+    .selfcare { background: #dec9ae; }
+    .selfcare .browser { transform: rotate(1.2deg); }
+    .selfcare .mini-site { background: #f6efe3; color: #4a3c31; }
+    .nspire { background: #c9ddd2; }
+    .nspire .mini-site { background: #174d48; color: #f3fff7; }
+    .violet { background: #d9d1eb; }
+    .violet .browser { transform: rotate(.5deg); }
+    .violet .mini-site { background: #faf7ff; color: #4c3e66; }
+    .budget { background: #efbca9; min-height: 335px; }
+    .budget .browser { max-width: 740px; transform: rotate(-.5deg); }
+    .budget .mini-site { background: #203743; color: #f5f3ea; display: grid; grid-template-columns: 1fr .8fr; gap: 20px; }
+    .mini-panel {
+      align-self: stretch;
+      border-radius: 9px;
+      padding: 16px;
+      background: rgba(255,255,255,.11);
+      display: grid;
+      gap: 10px;
+      align-content: center;
+    }
+    .mini-panel span { height: 8px; background: rgba(255,255,255,.52); border-radius: 6px; }
+    .mini-panel span:nth-child(2) { width: 76%; }
+    .mini-panel span:nth-child(3) { width: 88%; }
+
+    .project-body { padding: 25px 28px 29px; }
+    .project-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .project h3 {
+      margin-bottom: 11px;
+      font-family: "Source Serif 4", serif;
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      line-height: 1.1;
+      letter-spacing: -.025em;
+    }
+    .project p { margin-bottom: 20px; color: var(--muted); font-size: .95rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 23px; }
+    .chip { padding: 5px 9px; border-radius: 7px; background: var(--surface-2); color: var(--muted); font-size: .74rem; font-weight: 700; }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+    .project-link span { transition: transform .2s ease; }
+    .project-link:hover span { transform: translate(3px, -3px); }
+
+    .capabilities {
+      margin: 0 0 94px;
+      padding: 58px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: .85fr 1.4fr;
+      gap: clamp(40px, 8vw, 120px);
+    }
+    .capabilities h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+    .service-list { border-top: 1px solid var(--line); }
+    .service {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 18px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .service-num { color: var(--accent); font-weight: 800; font-size: .8rem; }
+    .service strong { display: block; margin-bottom: 4px; font-size: 1.04rem; }
+    .service p { margin: 0; color: var(--muted); font-size: .91rem; }
+
+    .closing {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+      gap: 42px;
+      align-items: end;
+      padding: 0 0 100px;
+    }
+    .closing h2 { max-width: 730px; margin: 0; }
+    .closing-action { justify-self: end; max-width: 360px; }
+    .closing-action p { color: var(--muted); margin-bottom: 20px; }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 13px 19px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 10px 26px rgba(215,82,54,.22);
+    }
+    .cta:hover { filter: brightness(.96); }
+    footer { padding: 22px 0 34px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
+    footer .shell { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    @media (max-width: 820px) {
+      .hero { min-height: auto; grid-template-columns: 1fr; gap: 42px; padding-top: 88px; }
+      .hero-index { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+      .section-head { grid-template-columns: 1fr; align-items: start; }
+      .filters { justify-content: flex-start; }
+      .project, .project:first-child, .project:nth-child(2), .project:nth-child(5) { grid-column: span 12; }
+      .capabilities, .closing { grid-template-columns: 1fr; }
+      .closing-action { justify-self: start; }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(calc(100% - 26px), var(--max)); }
+      .hero { padding-top: 64px; padding-bottom: 44px; }
+      h1 { font-size: clamp(3rem, 16vw, 4.6rem); }
+      .work { padding: 54px 0 70px; }
+      .preview { min-height: 240px; padding: 17px; }
+      .browser { width: 100%; min-height: 190px; }
+      .mini-site { min-height: 162px; padding: 22px; }
+      .mini-title { max-width: 88%; font-size: 1.55rem; }
+      .budget { min-height: 260px; }
+      .budget .mini-site { grid-template-columns: 1fr; }
+      .budget .mini-panel { display: none; }
+      .project-body { padding: 22px 21px 25px; }
+      .project-meta { align-items: flex-start; flex-direction: column; gap: 2px; }
+      .capabilities { margin-bottom: 70px; padding: 45px 0; }
+      .closing { padding-bottom: 70px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero shell" aria-labelledby="intro-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Web design &amp; development · Auburn / Dacula, GA</p>
+        <h1 id="intro-title">Built to look good. Designed to do real work.</h1>
+        <p class="hero-lede">I’m Yemi Odugbesan. I create clear, mobile-friendly websites and practical web apps that help small businesses show up professionally and serve people better.</p>
+      </div>
+      <aside class="hero-index" aria-label="Portfolio overview">
+        <div class="stat"><strong>5</strong><span>live projects in this portfolio</span></div>
+        <div class="stat"><strong>3</strong><span>business and service websites</span></div>
+        <div class="stat"><strong>2</strong><span>purpose-built web applications</span></div>
+      </aside>
+    </section>
+
+    <section class="work shell" id="work" aria-labelledby="work-title">
+      <header class="section-head">
+        <div>
+          <h2 id="work-title">Selected work</h2>
+          <p>Different businesses. Different needs. One focus: make the next step clear.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter portfolio projects">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All work</button>
+          <button class="filter" type="button" data-filter="website" aria-pressed="false">Websites</button>
+          <button class="filter" type="button" data-filter="app" aria-pressed="false">Web apps</button>
+        </div>
+      </header>
+
+      <div class="project-grid" aria-live="polite">
+        <article class="project" data-kind="website">
+          <div class="preview think" aria-hidden="true">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i></div>
+              <div class="mini-site">
+                <span class="mini-kicker">Career coaching &amp; business tools</span>
+                <div class="mini-title">Career growth, built with intention.</div>
+                <div class="mini-rule"></div>
+                <div class="mini-dots"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta"><span>Think Success Consulting</span><span>Business website</span></div>
+            <h3>A service-led website with several clear paths in.</h3>
+            <p>Career coaching, training, business tools and founder credibility are organized into one focused experience, with direct routes to assessments, calls and offers.</p>
+            <div class="chips"><span class="chip">Service architecture</span><span class="chip">Lead generation</span><span class="chip">Responsive design</span></div>
+            <a class="project-link" href="https://thinksuccessconsulting.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Think Success Consulting website">Visit the live site <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project" data-kind="website">
+          <div class="preview selfcare" aria-hidden="true">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i></div>
+              <div class="mini-site">
+                <span class="mini-kicker">Natural skincare</span>
+                <div class="mini-title">Simple rituals. Thoughtful care.</div>
+                <div class="mini-rule"></div>
+                <div class="mini-dots"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta"><span>Success Self Care</span><span>Brand website</span></div>
+            <h3>A warm editorial home for a handmade skincare brand.</h3>
+            <p>The site brings together products, founder story and practical articles in a calm, mature visual system designed for women 40 and beyond.</p>
+            <div class="chips"><span class="chip">Brand storytelling</span><span class="chip">Product discovery</span><span class="chip">Editorial layout</span></div>
+            <a class="project-link" href="https://success-selfcare.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Success Self Care website">Visit the live site <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project" data-kind="website">
+          <div class="preview nspire" aria-hidden="true">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i></div>
+              <div class="mini-site">
+                <span class="mini-kicker">Care coordination</span>
+                <div class="mini-title">Support through every step.</div>
+                <div class="mini-rule"></div>
+                <div class="mini-dots"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta"><span>NSP1RE</span><span>Client website</span></div>
+            <h3>Complex care services, made easier to understand.</h3>
+            <p>A person-centered site that presents case management, health resources, patient engagement and consulting with an approachable, credible structure.</p>
+            <div class="chips"><span class="chip">Information design</span><span class="chip">Service pages</span><span class="chip">Accessibility-minded</span></div>
+            <a class="project-link" href="https://client-nsp1re.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="Visit NSP1RE website">Visit the live site <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project" data-kind="app">
+          <div class="preview violet" aria-hidden="true">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i></div>
+              <div class="mini-site">
+                <span class="mini-kicker">Daily health journal</span>
+                <div class="mini-title">A gentler way to notice patterns.</div>
+                <div class="mini-rule"></div>
+                <div class="mini-dots"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta"><span>Violet</span><span>Web application</span></div>
+            <h3>A calm daily journal for life with lupus.</h3>
+            <p>The interface brings mood, energy, pain, meals, symptoms and appointments into one considerate routine, designed to feel manageable on difficult days.</p>
+            <div class="chips"><span class="chip">Interaction design</span><span class="chip">Daily tracking</span><span class="chip">Mobile-first UI</span></div>
+            <a class="project-link" href="https://violet-lupus.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Violet Lupus Daily Journal">Open the live app <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project" data-kind="app">
+          <div class="preview budget" aria-hidden="true">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i></div>
+              <div class="mini-site">
+                <div>
+                  <span class="mini-kicker">Small-business finance</span>
+                  <div class="mini-title">Know what the numbers are saying.</div>
+                  <div class="mini-rule"></div>
+                </div>
+                <div class="mini-panel"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta"><span>Business Budget Tracker</span><span>Web application</span></div>
+            <h3>A practical budgeting tool for owner-operated businesses.</h3>
+            <p>An editable, calculation-driven tracker that turns income and expense entries into an at-a-glance view of business performance.</p>
+            <div class="chips"><span class="chip">Data entry</span><span class="chip">Automatic calculations</span><span class="chip">Installable web app</span></div>
+            <a class="project-link" href="https://bizbudget-tracker.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Business Budget Tracker app">Open the live app <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="capabilities shell" aria-labelledby="capabilities-title">
+      <div>
+        <p class="eyebrow">How I can help</p>
+        <h2 id="capabilities-title">From first impression to useful tool.</h2>
+      </div>
+      <div class="service-list">
+        <div class="service"><span class="service-num">01</span><div><strong>Small-business websites</strong><p>A polished, mobile-ready home for your services, story and next customer action.</p></div></div>
+        <div class="service"><span class="service-num">02</span><div><strong>Website refreshes</strong><p>A clearer structure and more professional visual system for a site that no longer represents the business.</p></div></div>
+        <div class="service"><span class="service-num">03</span><div><strong>Custom web tools</strong><p>Focused apps, dashboards and trackers shaped around a real workflow—not features for their own sake.</p></div></div>
+      </div>
+    </section>
+
+    <section class="closing shell" aria-labelledby="closing-title">
+      <h2 id="closing-title">Your website should help a customer trust you—and know what to do next.</h2>
+      <div class="closing-action">
+        <p>Have a small-business website or custom tool in mind? Start the conversation through Think Success Consulting.</p>
+        <a class="cta" href="https://thinksuccessconsulting.com" target="_blank" rel="noopener noreferrer">Start a conversation <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell"><span>Yemi Odugbesan · Web design &amp; development</span><span>Auburn / Dacula, Georgia</span></div>
+  </footer>
+
+  <script>
+    (function () {
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('.filter'));
+      var projects = Array.prototype.slice.call(document.querySelectorAll('.project'));
+
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var selected = button.getAttribute('data-filter');
+          buttons.forEach(function (item) {
+            item.setAttribute('aria-pressed', item === button ? 'true' : 'false');
+          });
+          projects.forEach(function (project) {
+            project.hidden = selected !== 'all' && project.getAttribute('data-kind') !== selected;
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

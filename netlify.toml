@@ -1,0 +1,3 @@
+# Netlify settings for Yemi's web design portfolio (one plain HTML page).
+[build]
+  publish = "."
