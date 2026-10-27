@@ -184,7 +184,7 @@
     }
     .project:first-child { grid-column: span 7; }
     .project:nth-child(2) { grid-column: span 5; }
-    .project:nth-child(5) { grid-column: span 12; }
+    .project:nth-child(7) { grid-column: span 12; }
     .project[hidden] { display: none; }
     @media (hover: hover) {
       .project:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
@@ -234,6 +234,13 @@
     .selfcare .mini-site { background: #f6efe3; color: #4a3c31; }
     .nspire { background: #c9ddd2; }
     .nspire .mini-site { background: #174d48; color: #f3fff7; }
+    .isura { background: #d6d3e6; }
+    .isura .browser { transform: rotate(.8deg); }
+    .isura .mini-site { background: #0c133c; color: #f6f7fb; }
+    .isura .mini-rule { background: #64a376; opacity: 1; }
+    .rebloom { background: #f1d9c9; }
+    .rebloom .browser { transform: rotate(-.8deg); }
+    .rebloom .mini-site { background: #1f8a82; color: #fbf7f0; }
     .violet { background: #d9d1eb; }
     .violet .browser { transform: rotate(.5deg); }
     .violet .mini-site { background: #faf7ff; color: #4c3e66; }
@@ -342,7 +349,7 @@
       .hero-index { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
       .section-head { grid-template-columns: 1fr; align-items: start; }
       .filters { justify-content: flex-start; }
-      .project, .project:first-child, .project:nth-child(2), .project:nth-child(5) { grid-column: span 12; }
+      .project, .project:first-child, .project:nth-child(2), .project:nth-child(7) { grid-column: span 12; }
       .capabilities, .closing { grid-template-columns: 1fr; }
       .closing-action { justify-self: start; }
     }
@@ -378,9 +385,9 @@
         <p class="hero-lede">I’m Yemi Odugbesan. I create clear, mobile-friendly websites and practical web apps that help small businesses show up professionally and serve people better.</p>
       </div>
       <aside class="hero-index" aria-label="Portfolio overview">
-        <div class="stat"><strong>5</strong><span>live projects in this portfolio</span></div>
-        <div class="stat"><strong>3</strong><span>business and service websites</span></div>
-        <div class="stat"><strong>2</strong><span>purpose-built web applications</span></div>
+        <div class="stat"><strong>7</strong><span>live projects in this portfolio</span></div>
+        <div class="stat"><strong>4</strong><span>business and service websites</span></div>
+        <div class="stat"><strong>3</strong><span>purpose-built web applications</span></div>
       </aside>
     </section>
 
@@ -458,6 +465,48 @@
             <p>A person-centered site that presents case management, health resources, patient engagement and consulting with an approachable, credible structure.</p>
             <div class="chips"><span class="chip">Information design</span><span class="chip">Service pages</span><span class="chip">Accessibility-minded</span></div>
             <a class="project-link" href="https://client-nsp1re.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="Visit NSP1RE website">Visit the live site <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project" data-kind="website">
+          <div class="preview isura" aria-hidden="true">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i></div>
+              <div class="mini-site">
+                <span class="mini-kicker">In-home care · Dacula, GA</span>
+                <div class="mini-title">Compassionate care, at home.</div>
+                <div class="mini-rule"></div>
+                <div class="mini-dots"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta"><span>Isura Homecare</span><span>Client website</span></div>
+            <h3>A reassuring first stop for families seeking in-home care.</h3>
+            <p>Six care services, from companion care to skilled nursing, presented with warmth and clarity, with a clear request-care path and tap-to-call phone links.</p>
+            <div class="chips"><span class="chip">Healthcare website</span><span class="chip">Lead generation</span><span class="chip">Responsive design</span></div>
+            <a class="project-link" href="https://isurahomecare.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Isura Homecare website">Visit the live site <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project" data-kind="app">
+          <div class="preview rebloom" aria-hidden="true">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i></div>
+              <div class="mini-site">
+                <span class="mini-kicker">Faith-based healing</span>
+                <div class="mini-title">A verse, a prayer, a next step.</div>
+                <div class="mini-rule"></div>
+                <div class="mini-dots"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta"><span>Rebloom</span><span>Web application</span></div>
+            <h3>Daily encouragement for healing after separation and divorce.</h3>
+            <p>Each day brings Scripture, a prayer and one small healing step matched to where the person is, alongside a journal, a guided healing path and a quick-exit button for privacy.</p>
+            <div class="chips"><span class="chip">Personalized content</span><span class="chip">Journaling</span><span class="chip">Privacy-first design</span></div>
+            <a class="project-link" href="https://getrebloom.app" target="_blank" rel="noopener noreferrer" aria-label="Open Rebloom app">Open the live app <span aria-hidden="true">↗</span></a>
           </div>
         </article>
 
